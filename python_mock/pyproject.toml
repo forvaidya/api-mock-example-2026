@@ -1,0 +1,13 @@
+[project]
+name = "asgi-mock"
+version = "0.1.0"
+description = "Mock routes of any ASGI app from a toml file and a functions module, switched by MOCK=true"
+requires-python = ">=3.11"   # tomllib
+dependencies = []            # stdlib only; customers bring their own FastAPI/Starlette
+
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/asgi_mock"]

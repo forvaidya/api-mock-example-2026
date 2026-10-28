@@ -1,0 +1,14 @@
+# Used only when MOCK=true. Each [[route]] is exactly one of:
+#   mocked:   `handler = "<name>"` -> mocked_functions.<name>(req) returns the body (real handler never runs)
+#   disabled: `disabled = true`    -> 500, real handler never runs (mocked_functions.ts not consulted)
+# Unlisted routes (e.g. /time) pass through to the real app.
+# Checked at startup: a non-disabled route whose handler is missing from mocked_functions.ts fails fast.
+[[route]]
+method = "GET"
+path = "/foobar"
+handler = "foobar"
+
+[[route]]
+method = "POST"
+path = "/sensitive"
+disabled = true
